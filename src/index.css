@@ -169,6 +169,11 @@ body {
   filter: hue-rotate(180deg);
 }
 
+body:has(.pivoted) {
+  overflow-x: hidden;
+  max-height: 100vh;
+}
+
 section {
   padding: 6rem 2rem;
   max-width: 1200px;
