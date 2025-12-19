@@ -282,43 +282,26 @@ function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <span className={`badge ${chaosMode ? 'shake' : ''}`}>
-                  {chaosMode ? 'LEVEL 11 SYNERGY REACHED' : 'GLOBAL STRATEGIC VIBE LEADER 2024'}
-                </span>
-                <h1 className={chaosMode ? 'flicker' : ''}>
+                <h1 className={`shimmer-text ${chaosMode ? 'flicker' : ''}`} style={{ fontSize: 'min(12vw,5rem)', marginBottom: '1rem' }}>
                   {chaosMode ? 'SYNERGY OVERLOAD' : 'Innovating Synergy'}<br />
                   {chaosMode ? 'MAXIMUM VIBES' : 'Across Borders'}
                 </h1>
                 <p style={{ maxWidth: '600px', margin: '2rem auto', fontSize: '1.5rem', color: 'var(--corporate-light)' }}>
                   (Mostly After {chaosMode ? 'Wine' : '6pm'})
                 </p>
+                <p style={{ maxWidth: '600px', margin: '1rem auto', fontSize: '1.2rem', color: 'var(--corporate-light)' }}>We put the 'fun' in 'functional'.</p>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '3rem' }}>
                   <a href="tel:+447708803363" style={{ textDecoration: 'none' }}>
                     <button style={{ background: 'white', color: 'var(--corporate-navy)', border: 'none', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
-                      Contact Us
+                      Call Aaron NOW!
                     </button>
                   </a>
                 </div>
               </motion.div>
             </header>
 
-            {/* Aaron Intelligence Section */}
-            <section style={{ padding: '4rem 2rem', background: 'rgba(197, 160, 89, 0.05)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)' }}>
-              <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-                <span className="badge" style={{ marginBottom: '1.5rem' }}>BEYOND THE ALGORITHM</span>
-                <h2 className="synergy-text" style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>The Real AI: Aaron Intelligence</h2>
-                <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: 'var(--corporate-light)', fontStyle: 'italic' }}>
-                  "Traditional AI relies on Large Language Models. **Aaron Intelligence (AI)** relies on Large Lunch Menus.
-                  While Silicon Valley chases predictable code, we thrive on unpredictable pivots,
-                  3am epiphanies, and a complete disregard for the laws of traditional economics.
-                  Don't ask for a prompt; ask for a vibe."
-                </p>
-                <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem', opacity: 0.6 }}>
-                  <Zap size={16} color="var(--corporate-gold)" />
-                  <span style={{ fontSize: '0.8rem', letterSpacing: '2px', fontWeight: 800 }}>ZERO CODE • 100% VIBE • ACCENTUATED INTELLIGENCE</span>
-                </div>
-              </div>
-            </section>
+
+            {/* AI section moved below Team Section */}
 
             {/* Dashboard Section */}
             <section>
@@ -346,6 +329,31 @@ function App() {
               </div>
             </section>
 
+            {/* Services Section */}
+            <section style={{ background: 'var(--corporate-blue)', maxWidth: '100%', margin: 0, padding: '6rem 1.5rem' }}>
+              <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+                <h2 className="synergy-text" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Our Global Service Ecosystem</h2>
+                <p style={{ marginBottom: '3rem', fontSize: '1.1rem' }}>Leveraging cross-functional disruption to maintain the status quo.</p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                  {SERVICES.map((service, i) => (
+                    <motion.div
+                      key={i}
+                      className="glass-card"
+                      whileHover={{ y: -10, borderColor: 'var(--corporate-gold)' }}
+                      style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1rem' }}
+                    >
+                      <div style={{ background: 'rgba(197, 160, 89, 0.1)', width: 'fit-content', padding: '1rem', borderRadius: '12px', marginBottom: '0.5rem' }}>
+                        {service.icon}
+                      </div>
+                      <h3 style={{ margin: 0, fontSize: '1.3rem' }}>{chaosMode ? service.title.toUpperCase() : service.title}</h3>
+                      <p style={{ color: 'var(--corporate-gray)', fontSize: '0.9rem' }}>
+                        {chaosMode ? service.desc.replace(/economics/gi, 'FIRE').replace(/fun/gi, 'TERROR') : service.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </section>
             {/* Team Section */}
             <section id="team" style={{ padding: '6rem 1.5rem' }}>
               <h2 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '3rem' }} className={chaosMode ? 'flicker' : ''}>
@@ -386,31 +394,66 @@ function App() {
               </div>
             </section>
 
-            {/* Services Section */}
-            <section style={{ background: 'var(--corporate-blue)', maxWidth: '100%', margin: 0, padding: '6rem 1.5rem' }}>
-              <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
-                <h2 className="synergy-text" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Our Global Service Ecosystem</h2>
-                <p style={{ marginBottom: '3rem', fontSize: '1.1rem' }}>Leveraging cross-functional disruption to maintain the status quo.</p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-                  {SERVICES.map((service, i) => (
-                    <motion.div
-                      key={i}
-                      className="glass-card"
-                      whileHover={{ y: -10, borderColor: 'var(--corporate-gold)' }}
-                      style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1rem' }}
-                    >
-                      <div style={{ background: 'rgba(197, 160, 89, 0.1)', width: 'fit-content', padding: '1rem', borderRadius: '12px', marginBottom: '0.5rem' }}>
-                        {service.icon}
-                      </div>
-                      <h3 style={{ margin: 0, fontSize: '1.3rem' }}>{chaosMode ? service.title.toUpperCase() : service.title}</h3>
-                      <p style={{ color: 'var(--corporate-gray)', fontSize: '0.9rem' }}>
-                        {chaosMode ? service.desc.replace(/economics/gi, 'FIRE').replace(/fun/gi, 'TERROR') : service.desc}
-                      </p>
-                    </motion.div>
-                  ))}
+            {/* Aaron Intelligence Roast Section */}
+            <section style={{ padding: '6rem 2rem', background: 'rgba(197, 160, 89, 0.03)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)', position: 'relative', overflow: 'hidden' }}>
+              <div className="synergy-blob" style={{ top: '-150px', right: '-100px', opacity: 0.2 }}></div>
+              <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+                <div className="badge" style={{ background: 'var(--corporate-gold)', color: 'var(--corporate-navy)', marginBottom: '2rem' }}>THE REAL AI YOUR BUSINESS NEEDS</div>
+                <h2 className="synergy-text" style={{ fontSize: '3.5rem', marginBottom: '1.5rem', letterSpacing: '-1px' }}>Aaron Intelligence vs. Silicon Valley AI</h2>
+                <p style={{ fontSize: '1.3rem', color: 'var(--corporate-light)', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6' }}>
+                  Traditional AI promises to transform your business. Aaron Intelligence actually does it—usually over lunch.
+                </p>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
+                  <div className="glass-card" style={{ padding: '2rem', background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,77,77,0.3)' }}>
+                    <h4 style={{ color: '#ff4d4d', marginBottom: '1.5rem', fontSize: '1.3rem' }}>Traditional AI LLMs</h4>
+                    <ul style={{ fontSize: '0.95rem', color: 'var(--corporate-gray)', lineHeight: '2', listStyle: 'none', padding: 0 }}>
+                      <li>• Trained on billions of tokens from the internet</li>
+                      <li>• Hallucinates facts with confidence</li>
+                      <li>• Requires $10M in GPUs to "think"</li>
+                      <li>• Can't explain why a 3‑hour lunch is strategic</li>
+                      <li>• Needs constant fine‑tuning and prompts</li>
+                      <li>• Outputs generic corporate jargon</li>
+                    </ul>
+                  </div>
+
+                  <div className="glass-card" style={{ padding: '2rem', border: '2px solid var(--corporate-gold)', background: 'rgba(197, 160, 89, 0.05)' }}>
+                    <h4 style={{ color: 'var(--corporate-gold)', marginBottom: '1.5rem', fontSize: '1.3rem' }}>Aaron Intelligence (AI)</h4>
+                    <ul style={{ fontSize: '0.95rem', color: 'var(--corporate-light)', lineHeight: '2', listStyle: 'none', padding: 0 }}>
+                      <li>• Trained on decades of airport lounges</li>
+                      <li>• Hallucinates growth metrics that close deals</li>
+                      <li>• Runs on single‑malt scotch and intuition</li>
+                      <li>• Invented the 3‑hour "Strategic Alignment Session"</li>
+                      <li>• Self‑prompts based on wine consumption</li>
+                      <li>• Outputs bespoke synergy that actually works</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div style={{ textAlign: 'center', padding: '2rem', background: 'rgba(197, 160, 89, 0.05)', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+                  <p style={{ fontSize: '1.5rem', lineHeight: '1.5', color: 'var(--corporate-light)', fontStyle: 'italic', fontWeight: 300, marginBottom: '2rem' }}>
+                    "Why train a model on Wikipedia when you can train it on the Slough WeWork bar tab?
+                    <strong style={{ color: 'var(--corporate-gold)' }}>Aaron Intelligence</strong> doesn't predict the next token—it predicts the next Business Class upgrade."
+                  </p>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', opacity: 0.8 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Zap size={14} color="var(--corporate-gold)" />
+                      <span style={{ fontSize: '0.75rem', fontWeight: 900, letterSpacing: '2px' }}>UNSUPERVISED VIBING</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <ShieldCheck size={14} color="var(--corporate-gold)" />
+                      <span style={{ fontSize: '0.75rem', fontWeight: 900, letterSpacing: '2px' }}>PROACTIVELY DISRUPTIVE</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Wine size={14} color="var(--corporate-gold)" />
+                      <span style={{ fontSize: '0.75rem', fontWeight: 900, letterSpacing: '2px' }}>LIQUID ACCOUNTABILITY</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
+
 
             {/* Footer */}
             <footer style={{ padding: '4rem 2rem', textAlign: 'center', borderTop: '1px solid var(--glass-border)' }}>
