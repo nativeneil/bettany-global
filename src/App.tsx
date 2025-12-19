@@ -2,17 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   TrendingUp,
-  Users,
   ShieldCheck,
   Zap,
   Wine,
-  Smartphone,
-  Search,
   AlertCircle,
   Clock,
   MapPin,
   ChevronRight,
-  Info,
   Eye,
   Receipt,
   Type,
