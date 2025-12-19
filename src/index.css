@@ -25,6 +25,7 @@ body {
 
 .synergy-text {
   background: linear-gradient(45deg, var(--corporate-gold), var(--corporate-gold-light));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -228,10 +229,25 @@ button:hover {
 }
 
 .hero-gradient {
-  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.15) 0%, transparent 50%),
-    linear-gradient(135deg, var(--corporate-navy) 0%, var(--corporate-blue) 100%);
+  background: linear-gradient(-45deg, var(--corporate-navy), var(--corporate-blue), #1a365d, var(--corporate-navy));
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
   position: relative;
   overflow: hidden;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-gradient::before {
@@ -242,7 +258,51 @@ button:hover {
   right: 0;
   bottom: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5a059' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.3;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.hero-gradient::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, var(--corporate-gold) 0%, transparent 60%);
+  opacity: 0.05;
+  animation: floatBlobs 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes floatBlobs {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(5%, 10%) rotate(120deg);
+  }
+
+  66% {
+    transform: translate(-5%, 5%) rotate(240deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+.synergy-blob {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .company-logo {
