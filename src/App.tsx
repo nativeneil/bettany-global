@@ -204,12 +204,21 @@ function App() {
       setSynergy(prev => {
         const next = Math.min(110, Math.max(0, prev + (Math.random() * 20 - 10)));
         if (next > 100) setChaosMode(true);
-        else if (next < 50) setChaosMode(false);
         return next;
       });
     }, 2000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (chaosMode) {
+      const timer = setTimeout(() => {
+        setChaosMode(false);
+        setSynergy(85);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [chaosMode]);
 
   return (
     <div className={`pivot-animation ${pivoted ? 'pivoted' : ''} ${chaosMode ? 'shake' : ''}`}>
@@ -284,14 +293,8 @@ function App() {
                   (Mostly After {chaosMode ? 'Wine' : '6pm'})
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '3rem' }}>
-                  <button
-                    onClick={() => setPivoted(!pivoted)}
-                    className={chaosMode ? 'shake' : ''}
-                  >
-                    Pivot Now
-                  </button>
                   <a href="tel:+447708803363" style={{ textDecoration: 'none' }}>
-                    <button style={{ background: 'transparent', border: `1px solid ${chaosMode ? '#ff4d4d' : 'var(--corporate-gold)'}`, color: chaosMode ? '#ff4d4d' : 'var(--corporate-gold)' }}>
+                    <button style={{ background: 'white', color: 'var(--corporate-navy)', border: 'none', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                       Contact Us
                     </button>
                   </a>
