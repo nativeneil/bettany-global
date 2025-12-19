@@ -302,6 +302,24 @@ function App() {
               </motion.div>
             </header>
 
+            {/* Aaron Intelligence Section */}
+            <section style={{ padding: '4rem 2rem', background: 'rgba(197, 160, 89, 0.05)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)' }}>
+              <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+                <span className="badge" style={{ marginBottom: '1.5rem' }}>BEYOND THE ALGORITHM</span>
+                <h2 className="synergy-text" style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>The Real AI: Aaron Intelligence</h2>
+                <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: 'var(--corporate-light)', fontStyle: 'italic' }}>
+                  "Traditional AI relies on Large Language Models. **Aaron Intelligence (AI)** relies on Large Lunch Menus.
+                  While Silicon Valley chases predictable code, we thrive on unpredictable pivots,
+                  3am epiphanies, and a complete disregard for the laws of traditional economics.
+                  Don't ask for a prompt; ask for a vibe."
+                </p>
+                <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem', opacity: 0.6 }}>
+                  <Zap size={16} color="var(--corporate-gold)" />
+                  <span style={{ fontSize: '0.8rem', letterSpacing: '2px', fontWeight: 800 }}>ZERO CODE • 100% VIBE • ACCENTUATED INTELLIGENCE</span>
+                </div>
+              </div>
+            </section>
+
             {/* Dashboard Section */}
             <section>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
